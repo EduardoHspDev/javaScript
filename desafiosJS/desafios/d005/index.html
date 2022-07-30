@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Conversor de Medidas</title>
+    <style>
+        body{
+            padding: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button{
+            padding: 15px;
+            font-weight: bolder;
+            margin: 15px;
+        }
+        .resposta{
+            font-weight: bolder;
+            font-size: 16px;
+        }
+        .principal{
+            font-size: 25px;
+           
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <button onclick="converter()">Converter</button>
+    <div class='resposta'>Clique no botão acima para iniciar</div>
+    <script>
+        function converter(){
+            var distancia = Number(window.prompt('Digite uma distância em metros (m)'))
+            
+            if(distancia <=0 || distancia.length == 0){
+                window.alert('erro')
+            }else{ 
+                
+                var resp = window.document.querySelector('div.resposta')
+                resp.innerHTML = `<p class='principal'>A distância de ${distancia} metros corresponde a ...</p> <p>${distancia/1000} Km</p> <p>${distancia/100} Hm</p> <p>${distancia/10} Dm</p> <p>${distancia*10} dm</p> <p>${distancia*100} cm</p> <p>${distancia*1000} mm</p>`
+            }
+        }
+    </script>
+</body>
+</html>

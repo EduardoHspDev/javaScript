@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Reajuste Salarial</title>
+</head>
+<body>
+    <h1>Reajuste Salarial</h1>
+    <button onclick="reajustar()">Reajustar Salário</button>
+    <section>
+        <p id='resposta'>Clique no botão para reajustar</p>
+    </section>
+    <script>
+        function reajustar(){
+            var nomeFunc = window.prompt('Informe o nome do funcionário')
+            var salario = Number(window.prompt(`Informe o salário atual de ${nomeFunc}`))
+            var percentual = Number(window.prompt('Informe o percentual de reajuste em %'))
+            var valorReajuste = (percentual/100)*salario
+            var salarioNovo = salario + (percentual/100)*salario
+            var resp = window.document.querySelector('#resposta')
+            resp.innerHTML = `<p>${nomeFunc} recebeu um aumento salarial!</p><p>O salário atual era R$ ${salario.toFixed(2).replace('.',',')}.</p><p>Com um aumento de ${percentual}%, o salário vai aumentar R$ ${valorReajuste.toFixed(2).replace('.',',')} no proxímo mês.</p><p>E apartir daí ${nomeFunc} vai receber R$ ${salarioNovo.toFixed(2).replace('.',',')}.</p>`
+        }
+    </script>
+    
+</body>
+</html>

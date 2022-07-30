@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Preço Mudou</title>
+</head>
+<body>
+    <h1>Preço Mudou</h1>
+    <button onclick="modificarPreço()" >Verificar</button>
+    <section>
+        <p id='resposta'>Clique no botão acima para analizar o preço</p>
+    </section>
+    <script>
+        function modificarPreço(){
+            var produto = window.prompt('Informe o nome do produto')
+            var preço = Number(window.prompt(`Informe o preço antigo do ${produto}`))
+            var preçoAtual = Number(window.prompt(`Informe o preço atual do ${produto}`))
+            var retorno = window.document.querySelector('#resposta')
+            var diferença = preçoAtual-preço
+            var variação = (preçoAtual/preço-1)*100
+            if(preçoAtual>preço){
+                retorno.innerHTML = `<p>Analisamos os valores informados</p> <p>O ${produto} custava R$${preço.toFixed(2).replace('.',',')} e agora custa R$${preçoAtual.toFixed(2).replace('.',',')}</p> <p>Hoje o ${produto} está mais caro</p> <p>O preço subiu R$${diferença.toFixed(2).replace('.',',')} em relação ao preço anterior</p> <p>Uma variação de ${variação.toFixed(2)}% ↑</p>`
+            }else{
+                retorno.innerHTML = `<p>Analisamos os valores informados</p><p>O ${produto} custava ${preço.toFixed(2).replace('.',',')} e agora custa ${preçoAtual.toFixed(2).replace('.',',')}</p><p>Hoje o ${produto} está mais barato</p><p>O preço caiu R$${diferença.toFixed(2).replace('.',',')*-1} em relação ao preço anterior</p><p>Uma variação de ${variação.toFixed(2)*-1}% ↓</p>`
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

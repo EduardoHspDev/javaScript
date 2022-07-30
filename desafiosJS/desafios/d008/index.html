@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio do Desconto</title>
+    <style>
+        h1{
+            font: 30px bold Arial;
+        }
+        .principal{
+            font-size: 25px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Calcular Desconto</h1>
+    <button onclick="calcular()">Desconto 10%</button>
+    <section>
+        <p id='resposta'>Clique no botão para aplicar o desconto</p>
+    </section>
+    <script>
+        function calcular(){
+            var produto = window.prompt('Informe o produto que vai receber o desconto')
+            var preço = Number(window.prompt('Informe o preço de etiqueta do produto'))
+            var desconto = (preço*10)/100
+            var prodDesconto = preço-desconto
+            var resp = window.document.querySelector('#resposta')
+            resp.innerHTML=`<p class='principal'>Calculando o desconto de 10% para ${produto}</p><p> O preço original era de R$ ${preço.toFixed(2).replace('.',',')}.</p><p>Você acaba de ganhar R$ ${desconto.toFixed(2).replace('.',',')} de desconto (-10%).</p>No fim, você irá pagar pelo ${produto} R$ ${prodDesconto.toFixed(2).replace('.',',')}`
+        }
+    </script>
+    
+</body>
+</html>
